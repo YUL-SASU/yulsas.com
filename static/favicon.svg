@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <title>YUL SAS</title>
+  <style>
+    .background {
+      fill: #243e35;
+    }
+
+    .monogram {
+      fill: #f7f7f2;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .background {
+        fill: #e0e9df;
+      }
+
+      .monogram {
+        fill: #18241f;
+      }
+    }
+  </style>
+  <rect class="background" width="32" height="32" rx="6" />
+  <path class="monogram" d="M5 7h10v2h-3l5 8 5-8h-3V7h8v2h-2l-6 10v5h3v2H11v-2h3v-5L7 9H5Z" />
+</svg>

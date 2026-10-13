@@ -1,0 +1,104 @@
+:root {
+  color-scheme: light dark;
+  --color-background: #f7f7f2;
+  --color-text: #243e35;
+  --color-border: #c9d0c7;
+  --font-body: sans-serif;
+  --font-display: serif;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 3rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #18241f;
+    --color-text: #e0e9df;
+    --color-border: #43594b;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: var(--space-2xl);
+  place-items: center;
+  padding: var(--space-2xl) var(--space-lg);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+address {
+  font-style: normal;
+}
+
+.company-card {
+  width: 100%;
+  max-width: 34rem;
+  border-top: 2px solid currentColor;
+  padding-top: var(--space-xl);
+}
+
+.company-card__name {
+  margin: 0 0 var(--space-2xl);
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 15vw, 7rem);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.company-details {
+  margin: 0;
+}
+
+.company-details__row {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr);
+  gap: var(--space-md);
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.company-details__row dt {
+  padding-top: 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.company-details__row dd {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.company-details__vat {
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+.site-footer {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 420px) {
+  .company-details__row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-sm);
+  }
+}
