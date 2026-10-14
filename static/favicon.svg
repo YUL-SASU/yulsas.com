@@ -2,20 +2,20 @@
   <title>YUL SAS</title>
   <style>
     .background {
-      fill: #243e35;
+      fill: hsl(155, 20%, 12%);
     }
 
     .monogram {
-      fill: #f7f7f2;
+      fill: hsl(155, 19%, 89%);
     }
 
     @media (prefers-color-scheme: dark) {
       .background {
-        fill: #e0e9df;
+        fill: hsl(155, 24%, 96%);
       }
 
       .monogram {
-        fill: #18241f;
+        fill: hsl(155, 27%, 19%);
       }
     }
   </style>

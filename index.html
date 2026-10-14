@@ -9,8 +9,8 @@
   <meta name="theme-color" content="#18241f" media="(prefers-color-scheme: dark)">
   <meta name="description" content="YUL SAS — Siège social : 60 rue François Ier, 75008 Paris, France.">
   <link rel="canonical" href="https://yulsas.com/">
-  <link rel="icon" href="./static/favicon.svg" type="image/svg+xml" sizes="any">
-  <link rel="stylesheet" href="./static/style.css">
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="stylesheet" href="/static/style.css">
   <title>YUL SAS</title>
   <meta property="og:title" content="YUL SAS">
   <meta property="og:description" content="YUL SAS — Siège social : 60 rue François Ier, 75008 Paris, France.">
@@ -21,22 +21,18 @@
 </head>
 
 <body>
-  <main class="company-card" aria-labelledby="company-name">
-    <h1 class="company-card__name" id="company-name">YUL SAS</h1>
-    <dl class="company-details">
-      <div class="company-details__row">
-        <dt>Siège social</dt>
-        <dd>
-          <address>60 rue François I<sup>er</sup><br>75008 Paris<br>France</address>
-        </dd>
-      </div>
-      <div class="company-details__row">
-        <dt>Numéro de TVA</dt>
-        <dd class="company-details__vat">FR96101875151</dd>
-      </div>
-    </dl>
+  <main class="home-main" aria-labelledby="home-title">
+    <h1 class="domain-notice" id="home-title">Ce domaine est exploité par YUL SAS.</h1>
   </main>
-  <footer class="site-footer">© 2026 YUL SAS</footer>
+  <footer class="site-footer">
+    <nav aria-label="Informations légales">
+      <ul class="inline-list" role="list">
+        <li><a href="/mentions-legales.html">Mentions légales</a></li>
+        <li><a href="/politique-de-confidentialite.html">Politique de confidentialité</a></li>
+        <li>© 2026 YUL SAS</li>
+      </ul>
+    </nav>
+  </footer>
 </body>
 
 </html>

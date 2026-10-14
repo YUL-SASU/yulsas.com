@@ -1,10 +1,12 @@
 :root {
   color-scheme: light dark;
-  --color-background: #f7f7f2;
-  --color-text: #243e35;
-  --color-border: #c9d0c7;
+  --color-background: hsl(155, 24%, 96%);
+  --color-text: hsl(155, 27%, 19%);
+  --color-link: hsl(155, 33%, 31%);
+  --color-border: hsl(155, 9%, 80%);
   --font-body: sans-serif;
   --font-display: serif;
+  --space-xs: 0.25rem;
   --space-sm: 0.5rem;
   --space-md: 1rem;
   --space-lg: 1.5rem;
@@ -14,9 +16,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: #18241f;
-    --color-text: #e0e9df;
-    --color-border: #43594b;
+    --color-background: hsl(155, 20%, 12%);
+    --color-text: hsl(155, 19%, 89%);
+    --color-link: hsl(155, 26%, 73%);
+    --color-border: hsl(155, 14%, 31%);
   }
 }
 
@@ -42,35 +45,71 @@ address {
   font-style: normal;
 }
 
-.company-card {
+.content-card {
   width: 100%;
   max-width: 34rem;
+  overflow-wrap: anywhere;
   border-top: 2px solid currentColor;
   padding-top: var(--space-xl);
 }
 
-.company-card__name {
+.home-main {
+  width: 100%;
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-size: x-large;
+}
+
+.domain-notice {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 1.7;
+}
+
+.page-title {
   margin: 0 0 var(--space-2xl);
   font-family: var(--font-display);
-  font-size: clamp(4.5rem, 15vw, 7rem);
+  font-size: clamp(2rem, 7vw, 3.5rem);
   font-weight: 400;
   letter-spacing: -0.05em;
   line-height: 1;
 }
 
-.company-details {
+.content-card p {
+  margin: 0 0 var(--space-lg);
+  line-height: 1.7;
+}
+
+.page-updated {
+  font-size: 0.875rem;
+}
+
+.content-section {
+  margin-top: var(--space-2xl);
+}
+
+.content-section h2 {
+  margin: 0 0 var(--space-md);
+  font-size: 1.5rem;
+}
+
+.details-list {
   margin: 0;
 }
 
-.company-details__row {
+.details-list__row {
   display: grid;
-  grid-template-columns: 10rem minmax(0, 1fr);
+  grid-template-columns: 13rem minmax(0, 1fr);
   gap: var(--space-md);
   padding: var(--space-lg) 0;
   border-top: 1px solid var(--color-border);
+  font-variant-numeric: tabular-nums;
 }
 
-.company-details__row dt {
+.details-list__row dt {
   padding-top: 0.25rem;
   font-size: 0.6875rem;
   font-weight: 600;
@@ -79,15 +118,11 @@ address {
   text-transform: uppercase;
 }
 
-.company-details__row dd {
+.details-list__row dd {
   margin: 0;
   font-size: 1rem;
   line-height: 1.7;
   overflow-wrap: anywhere;
-}
-
-.company-details__vat {
-  font-variant-numeric: tabular-nums slashed-zero;
 }
 
 .site-footer {
@@ -96,8 +131,43 @@ address {
   text-align: center;
 }
 
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 1px;
+  border-radius: 1px;
+}
+
+.site-footer a,
+.details-list__row dd a {
+  color: var(--color-text);
+}
+
+.inline-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inline-list li {
+  display: inline-block;
+}
+
+.inline-list li + li::before {
+  content: " · ";
+  margin-inline: 0;
+}
+
 @media (max-width: 420px) {
-  .company-details__row {
+  .details-list__row {
     grid-template-columns: minmax(0, 1fr);
     gap: var(--space-sm);
   }
