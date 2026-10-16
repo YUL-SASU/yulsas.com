@@ -146,6 +146,12 @@ a:focus-visible {
   border-radius: 1px;
 }
 
+.back-link::before {
+  content: "⮌";
+  display: inline-block;
+  margin-inline-end: var(--space-sm);
+}
+
 .site-footer a,
 .details-list__row dd a {
   color: var(--color-text);
