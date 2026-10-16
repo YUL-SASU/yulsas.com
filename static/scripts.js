@@ -17,6 +17,7 @@ const keyText = "wHnmQhUmES3SA8lroWcbn2kyuDuUOnUe5pPJheioEl4";
 // 4. Refresh again to see the readable, clickable contact link.
 // Encoding changes the live page only; save the encoded text in your file.
 // Decoding creates mailto links for emails and tel links for telephone numbers.
+// Use "email-text" or "telephone-text" instead to display plain text without a link.
 // Phone formatting is preserved on screen and removed from the tel link.
 // This hides contact values from basic HTML scrapers; the key is public.
 
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const onGetKey = function (key) {
     const coder = new AesLinkCoder(key);
 
-    document.querySelectorAll(".email, .telephone, .encode-email, .encode-telephone").forEach(function (node) {
+    document.querySelectorAll(".email, .telephone, .email-text, .telephone-text, .encode-email, .encode-telephone").forEach(function (node) {
       const method = node.classList.contains("encode-email") || node.classList.contains("encode-telephone")
         ? "encode"
         : "decode";
@@ -244,6 +245,11 @@ AesLinkCoder.prototype.encode = async function (node) {
 AesLinkCoder.prototype.decode = async function (node) {
   const encoded = node.getAttribute("data-encoded") || node.textContent;
   const text = await Aes.decrypt(encoded.trim(), this.key);
+  if (node.classList.contains("email-text") || node.classList.contains("telephone-text")) {
+    node.textContent = text;
+    return;
+  }
+
   const isTelephone = node.classList.contains("telephone");
   const scheme = isTelephone ? "tel:" : "mailto:";
   const target = isTelephone ? text.replace(/[\s().-]/g, "") : text;
